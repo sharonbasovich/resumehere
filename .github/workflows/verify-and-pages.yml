@@ -22,6 +22,7 @@ jobs:
       - run: npm run typecheck
       - run: npm test
       - run: npm run build
+      - run: npm run test:offline
       - run: npm run test:contrast
       - name: Install reference browsers
         run: npx playwright install --with-deps chromium firefox
