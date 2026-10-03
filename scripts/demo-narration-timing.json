@@ -1,0 +1,318 @@
+{
+  "status": "Pre-capture narration draft, not a submitted video",
+  "sampleRate": 24000,
+  "channels": 1,
+  "codec": "PCM signed 16-bit little-endian",
+  "scriptSha256": "493a9a836f5d97fa96c564fe94b31547043b36ed0aed54c89c39563b606c0b5f",
+  "durationSeconds": 165.0,
+  "speechFileSeconds": 128.725,
+  "insertedSilenceSeconds": 36.275,
+  "leadingSilenceSeconds": 1,
+  "scenes": [
+    {
+      "id": "01-place",
+      "filename": "01-place.wav",
+      "title": "The problem",
+      "startSample": 24000,
+      "endSample": 426600,
+      "startSeconds": 1.0,
+      "endSeconds": 17.775,
+      "followingPauseSeconds": 5.545833333333333
+    },
+    {
+      "id": "02-start",
+      "filename": "02-start.wav",
+      "title": "An explicit path",
+      "startSample": 559700,
+      "endSample": 938900,
+      "startSeconds": 23.320833333333333,
+      "endSeconds": 39.12083333333333,
+      "followingPauseSeconds": 5.545833333333333
+    },
+    {
+      "id": "03-resume",
+      "filename": "03-resume.wav",
+      "title": "An interrupted checklist",
+      "startSample": 1072000,
+      "endSample": 1541200,
+      "startSeconds": 44.666666666666664,
+      "endSeconds": 64.21666666666667,
+      "followingPauseSeconds": 5.545833333333333
+    },
+    {
+      "id": "04-correct",
+      "filename": "04-correct.wav",
+      "title": "Keep the work that still counts",
+      "startSample": 1674300,
+      "endSample": 2137500,
+      "startSeconds": 69.7625,
+      "endSeconds": 89.0625,
+      "followingPauseSeconds": 5.545833333333333
+    },
+    {
+      "id": "05-undo",
+      "filename": "05-undo.wav",
+      "title": "A complete undo",
+      "startSample": 2270600,
+      "endSample": 2696600,
+      "startSeconds": 94.60833333333333,
+      "endSeconds": 112.35833333333333,
+      "followingPauseSeconds": 5.545833333333333
+    },
+    {
+      "id": "06-authored",
+      "filename": "06-authored.wav",
+      "title": "Authored, not inferred",
+      "startSample": 2829700,
+      "endSample": 3311500,
+      "startSeconds": 117.90416666666667,
+      "endSeconds": 137.97916666666666,
+      "followingPauseSeconds": 5.545833333333333
+    },
+    {
+      "id": "07-next",
+      "filename": "07-next.wav",
+      "title": "Boundaries and next test",
+      "startSample": 3444600,
+      "endSample": 3912000,
+      "startSeconds": 143.525,
+      "endSeconds": 163.0,
+      "followingPauseSeconds": 2.0
+    }
+  ],
+  "sentences": [
+    {
+      "scene": "01-place",
+      "text": "An interruption can make a simple checklist hard to resume.",
+      "startSample": 24000,
+      "endSample": 120600,
+      "startSeconds": 1.0,
+      "endSeconds": 5.025
+    },
+    {
+      "scene": "01-place",
+      "text": "And a changed answer can make old checkmarks misleading.",
+      "startSample": 120600,
+      "endSample": 213000,
+      "startSeconds": 5.025,
+      "endSeconds": 8.875
+    },
+    {
+      "scene": "01-place",
+      "text": "ResumeHere shows what is ready, what is waiting, and which completed steps still count.",
+      "startSample": 213000,
+      "endSample": 351000,
+      "startSeconds": 8.875,
+      "endSeconds": 14.625
+    },
+    {
+      "scene": "01-place",
+      "text": "This is a fictional, low-stakes meetup guide.",
+      "startSample": 351000,
+      "endSample": 426600,
+      "startSeconds": 14.625,
+      "endSeconds": 17.775
+    },
+    {
+      "scene": "02-start",
+      "text": "I have reserved a supplies kit, so I choose Yes and confirm.",
+      "startSample": 559700,
+      "endSample": 659900,
+      "startSeconds": 23.320833333333333,
+      "endSeconds": 27.495833333333334
+    },
+    {
+      "scene": "02-start",
+      "text": "I save the booking code, pack a notebook, and check in.",
+      "startSample": 659900,
+      "endSample": 748700,
+      "startSeconds": 27.495833333333334,
+      "endSeconds": 31.195833333333333
+    },
+    {
+      "scene": "02-start",
+      "text": "The whole path explains each state.",
+      "startSample": 748700,
+      "endSample": 810500,
+      "startSeconds": 31.195833333333333,
+      "endSeconds": 33.770833333333336
+    },
+    {
+      "scene": "02-start",
+      "text": "The activity sheet is not needed on this branch.",
+      "startSample": 810500,
+      "endSample": 888500,
+      "startSeconds": 33.770833333333336,
+      "endSeconds": 37.020833333333336
+    },
+    {
+      "scene": "02-start",
+      "text": "That is different from complete.",
+      "startSample": 888500,
+      "endSample": 938900,
+      "startSeconds": 37.020833333333336,
+      "endSeconds": 39.12083333333333
+    },
+    {
+      "scene": "03-resume",
+      "text": "Now imagine I am interrupted.",
+      "startSample": 1072000,
+      "endSample": 1131400,
+      "startSeconds": 44.666666666666664,
+      "endSeconds": 47.141666666666666
+    },
+    {
+      "scene": "03-resume",
+      "text": "I wait for Saved on this device, then reload the page.",
+      "startSample": 1131400,
+      "endSample": 1223800,
+      "startSeconds": 47.141666666666666,
+      "endSeconds": 50.99166666666667
+    },
+    {
+      "scene": "03-resume",
+      "text": "My saved place returns, including the answer and three completed actions.",
+      "startSample": 1223800,
+      "endSample": 1345600,
+      "startSeconds": 50.99166666666667,
+      "endSeconds": 56.06666666666667
+    },
+    {
+      "scene": "03-resume",
+      "text": "The last completed action gives me a place to orient myself.",
+      "startSample": 1345600,
+      "endSample": 1449400,
+      "startSeconds": 56.06666666666667,
+      "endSeconds": 60.391666666666666
+    },
+    {
+      "scene": "03-resume",
+      "text": "I continue by collecting the kit and reaching the table.",
+      "startSample": 1449400,
+      "endSample": 1541200,
+      "startSeconds": 60.391666666666666,
+      "endSeconds": 64.21666666666667
+    },
+    {
+      "scene": "04-correct",
+      "text": "But I discover that I did not reserve a kit.",
+      "startSample": 1674300,
+      "endSample": 1749300,
+      "startSeconds": 69.7625,
+      "endSeconds": 72.8875
+    },
+    {
+      "scene": "04-correct",
+      "text": "Before accepting No, ResumeHere previews the consequences: collecting the kit and reaching the table reset.",
+      "startSample": 1749300,
+      "endSample": 1924500,
+      "startSeconds": 72.8875,
+      "endSeconds": 80.1875
+    },
+    {
+      "scene": "04-correct",
+      "text": "Saving the code, packing the notebook, and checking in stay complete.",
+      "startSample": 1924500,
+      "endSample": 2026500,
+      "startSeconds": 80.1875,
+      "endSeconds": 84.4375
+    },
+    {
+      "scene": "04-correct",
+      "text": "After confirmation, the activity sheet is ready, and the table waits.",
+      "startSample": 2026500,
+      "endSample": 2137500,
+      "startSeconds": 84.4375,
+      "endSeconds": 89.0625
+    },
+    {
+      "scene": "05-undo",
+      "text": "Undo last transition restores the earlier answer and all five completed actions together.",
+      "startSample": 2270600,
+      "endSample": 2427800,
+      "startSeconds": 94.60833333333333,
+      "endSeconds": 101.15833333333333
+    },
+    {
+      "scene": "05-undo",
+      "text": "Simply changing an answer back would not restore stale checkmarks.",
+      "startSample": 2427800,
+      "endSample": 2532200,
+      "startSeconds": 101.15833333333333,
+      "endSeconds": 105.50833333333334
+    },
+    {
+      "scene": "05-undo",
+      "text": "The difference matters: undo restores a previous state; a new answer starts from the work that is still valid.",
+      "startSample": 2532200,
+      "endSample": 2696600,
+      "startSeconds": 105.50833333333334,
+      "endSeconds": 112.35833333333333
+    },
+    {
+      "scene": "06-authored",
+      "text": "The author links exact source passages, chooses prerequisites, and adds explicit branch conditions.",
+      "startSample": 2829700,
+      "endSample": 2994100,
+      "startSeconds": 117.90416666666667,
+      "endSeconds": 124.75416666666666
+    },
+    {
+      "scene": "06-authored",
+      "text": "A deterministic dependency graph computes the result.",
+      "startSample": 2994100,
+      "endSample": 3090100,
+      "startSeconds": 124.75416666666666,
+      "endSeconds": 128.75416666666666
+    },
+    {
+      "scene": "06-authored",
+      "text": "The app does not rewrite instructions or call an AI model.",
+      "startSample": 3090100,
+      "endSample": 3188500,
+      "startSeconds": 128.75416666666666,
+      "endSeconds": 132.85416666666666
+    },
+    {
+      "scene": "06-authored",
+      "text": "Progress stays in this browser profile, without encryption or synchronization.",
+      "startSample": 3188500,
+      "endSample": 3311500,
+      "startSeconds": 132.85416666666666,
+      "endSeconds": 137.97916666666666
+    },
+    {
+      "scene": "07-next",
+      "text": "Automated tests and bounded Chromium and Firefox checks cover this core flow.",
+      "startSample": 3444600,
+      "endSample": 3576600,
+      "startSeconds": 143.525,
+      "endSeconds": 149.025
+    },
+    {
+      "scene": "07-next",
+      "text": "They do not establish accessibility certification or improved human outcomes.",
+      "startSample": 3576600,
+      "endSample": 3707400,
+      "startSeconds": 149.025,
+      "endSeconds": 154.475
+    },
+    {
+      "scene": "07-next",
+      "text": "The next test is whether people can recover their place after a real interruption.",
+      "startSample": 3707400,
+      "endSample": 3834000,
+      "startSeconds": 154.475,
+      "endSeconds": 159.75
+    },
+    {
+      "scene": "07-next",
+      "text": "ResumeHere: keep the progress that still counts.",
+      "startSample": 3834000,
+      "endSample": 3912000,
+      "startSeconds": 159.75,
+      "endSeconds": 163.0
+    }
+  ],
+  "timingNote": "Exact sample boundaries of generated sentences, including model-produced leading/trailing silence. SRT uses these sentence spans; not word-level forced alignment."
+}
