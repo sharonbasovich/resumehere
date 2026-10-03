@@ -1,0 +1,4 @@
+import { readdir, writeFile } from 'node:fs/promises';
+const files = (await readdir('dist/assets')).map(f => './assets/' + f);
+const cache = 'resumehere-' + files.join('').replace(/[^a-z0-9]/gi, '').slice(-60);
+await writeFile('dist/sw.js', `const CACHE=${JSON.stringify(cache)};const FILES=${JSON.stringify(['./', './index.html', ...files])};self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES))));self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('resumehere-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)));});`);

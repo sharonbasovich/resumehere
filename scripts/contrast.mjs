@@ -1,0 +1,4 @@
+// Static declared-palette check only; not a browser/computed-style or full WCAG audit.
+const pairs=[['Body','#20362f','#f7f7ef'],['Muted text','#53625b','#f7f7ef'],['Paper muted','#53625b','#fffef8'],['Primary button','#ffffff','#174e40'],['Eyebrow','#506747','#e3eccc'],['Ready explanation','#42583a','#e3eccc'],['Illustration muted','#4b6446','#fbfcf3'],['Amber illustration','#76512f','#fff8de'],['Done status','#284525','#dce9cd'],['Inactive status','#55594f','#e8e7e1'],['Unknown status','#634816','#f6eac5'],['Field errors','#8b3025','#fffef8']];
+function luminance(hex){const cs=hex.slice(1).match(/../g).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return cs[0]*.2126+cs[1]*.7152+cs[2]*.0722;}
+let failures=0;for(const [name,fg,bg]of pairs){const a=luminance(fg),b=luminance(bg),r=(Math.max(a,b)+.05)/(Math.min(a,b)+.05);console.log(`${name}: ${r.toFixed(2)}:1 ${r>=4.5?'PASS':'FAIL'}`);if(r<4.5)failures++;}if(failures)process.exit(1);
