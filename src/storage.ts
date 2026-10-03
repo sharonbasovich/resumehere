@@ -1,0 +1,6 @@
+const DB = 'resumehere-original-v1';
+const STORE = 'workspace';
+function open(): Promise<IDBDatabase> { return new Promise((resolve, reject) => { const req = indexedDB.open(DB, 1); req.onupgradeneeded = () => req.result.createObjectStore(STORE); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); }); }
+export async function readSaved(): Promise<unknown> { const db = await open(); return new Promise((resolve, reject) => { const tx = db.transaction(STORE); const req = tx.objectStore(STORE).get('active'); req.onsuccess = () => resolve(req.result); req.onerror = () => reject(req.error); tx.oncomplete = () => db.close(); }); }
+export async function writeSaved(value: unknown): Promise<void> { const db = await open(); return new Promise((resolve, reject) => { const tx = db.transaction(STORE, 'readwrite'); tx.objectStore(STORE).put(value, 'active'); tx.oncomplete = () => { db.close(); resolve(); }; tx.onerror = () => { db.close(); reject(tx.error); }; }); }
+export async function clearSaved(): Promise<void> { const db = await open(); return new Promise((resolve, reject) => { const tx = db.transaction(STORE, 'readwrite'); tx.objectStore(STORE).delete('active'); tx.oncomplete = () => { db.close(); resolve(); }; tx.onerror = () => { db.close(); reject(tx.error); }; }); }
