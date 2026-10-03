@@ -1,0 +1,56 @@
+name: Capture ResumeHere demo
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: resumehere-demo-capture
+  cancel-in-progress: false
+jobs:
+  capture:
+    if: github.repository == 'sharonbasovich/resumehere'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Verify frozen application and existing checks
+        run: |
+          node --check scripts/capture-demo.mjs
+          node scripts/capture-demo.mjs --verify-only
+          npm run typecheck
+          npm test
+          npm run build
+          npm run test:offline
+          npm run test:contrast
+      - run: npx --no-install playwright install --with-deps chromium
+      - name: Ensure official Ubuntu FFmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version
+          ffprobe -version
+      - name: Capture genuine continuous browser flow
+        env:
+          CI: 'true'
+        run: |
+          mkdir -p demo-capture
+          npm run preview -- --host 127.0.0.1 --port 4173 --strictPort > demo-capture/server.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          node scripts/capture-demo.mjs
+      - name: Preserve evidence including unsuccessful captures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: resumehere-demo-${{ github.run_id }}-${{ github.run_attempt }}
+          path: demo-capture/
+          if-no-files-found: warn
+          retention-days: 14
+          compression-level: 0
