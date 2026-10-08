@@ -57,15 +57,13 @@ test('reduced motion keeps immediate meaning and native keyboard focus',async({p
  await page.keyboard.press('Tab');await expect(page.getByRole('button',{name:'Confirm change'})).toBeFocused();
  await expect(page.getByRole('button',{name:'Confirm change'})).toHaveCSS('outline-width','3px');
  await page.screenshot({path:info.outputPath('keyboard-focus.png')});
- // Native dialogs may pass through browser chrome (BODY in headless Chromium)
- // between cycles. Background controls must remain inert throughout traversal.
- let returnedToCancel=false;
- for(let i=0;i<5;i++){
-  await page.keyboard.press('Tab');
-  expect(await page.evaluate(()=>document.activeElement===document.body||!!document.activeElement?.closest('dialog[open]'))).toBe(true);
-  returnedToCancel ||= await page.getByRole('dialog').getByRole('button',{name:'Cancel',exact:true}).evaluate(e=>e===document.activeElement);
- }
- expect(returnedToCancel).toBe(true);
+ // Await focus after every key. Browser-chrome traversal at the edge of the
+ // native tab cycle differs by engine; inspect the dialog's own controls.
+ const cancel=page.getByRole('dialog').getByRole('button',{name:'Cancel',exact:true});
+ await page.keyboard.press('Shift+Tab');await expect(cancel).toBeFocused();
+ await page.keyboard.press('Shift+Tab');await expect(page.getByRole('dialog').locator('summary')).toBeFocused();
+ await page.keyboard.press('Tab');await expect(cancel).toBeFocused();
+ expect(await page.getByRole('dialog').evaluate(e=>e.matches(':modal'))).toBe(true);
  expect(await page.evaluate(()=>document.getAnimations().length)).toBe(0);
  await page.keyboard.press('Escape');
  await page.getByRole('button',{name:'Undo last transition'}).click();await expect(progress(page,0,1,5)).toBeVisible();
