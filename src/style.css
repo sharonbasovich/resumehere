@@ -5,3 +5,49 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}@media(forced-colors:active){button,.panel,.next-card,.art-step,.step-marker{border:1px solid CanvasText}.choice-buttons button[aria-pressed=true]{outline:2px solid Highlight}.progress-track{border:1px solid CanvasText}}
 
 .field-errors{font-size:.8rem;color:#8b3025;padding-left:20px}.last-completed{max-width:400px}.resume-strip>div:first-child{flex:1}.progress-track{flex-shrink:0;max-width:125px}
+
+/* Feedback stays quiet and readable, even when motion or color is unavailable. */
+:root{--content-duration:180ms;--progress-duration:260ms;--ease:cubic-bezier(.2,0,0,1);-webkit-font-smoothing:antialiased}
+h1,h2,h3{text-wrap:balance}
+.icon{width:1.15em;height:1.15em;display:inline-block;vertical-align:-.18em;flex-shrink:0}
+button .icon{margin-left:8px}
+.brand-icon .icon{width:25px;height:25px}
+.art-choice b{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.step-marker .icon{width:16px;height:16px}
+.brand{min-height:44px}
+summary{min-height:44px;padding-block:10px}
+.journey button.text-button{min-height:44px}
+.check-label{min-height:44px}
+.choice-buttons button[aria-pressed=true]:before{content:none}
+.choice-buttons button[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--paper),0 0 0 1px var(--green)}
+.resume-strip{flex-wrap:wrap;gap:12px;padding-bottom:18px}
+.resume-strip>div:first-child{flex-basis:100%}
+.resume-strip strong,.progress-legend,.receipt-scope{font-variant-numeric:tabular-nums}
+.progress-legend{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;padding:0;margin:10px 0 6px;font-size:.75rem;color:var(--muted)}
+.progress-legend li{display:flex;align-items:center;gap:6px}
+.progress-legend li:before{content:'';width:12px;height:12px;flex-shrink:0;border:1px solid #71816a;border-radius:3px}
+.progress-legend .legend-complete:before,.progress-track .progress-complete{background:var(--green)}
+.progress-legend .legend-inactive:before,.progress-track .progress-inactive{background:repeating-linear-gradient(135deg,#cfd5c6 0 4px,#7f8e77 4px 6px)}
+.progress-legend .legend-remaining:before{background:var(--paper)}
+.progress-track{position:relative;width:100%;max-width:none;height:12px;background:var(--paper);border:1px solid #71816a;border-radius:6px;overflow:hidden}
+.progress-track i{position:absolute;inset:0;transform-origin:left center;transition:transform var(--progress-duration) var(--ease)}
+.change-receipt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 20px;border:1px solid var(--line);border-radius:12px;background:var(--paper);padding:18px 20px;margin-bottom:20px;align-items:center}
+.change-receipt h2{font-size:.8rem;letter-spacing:0;margin:0 0 6px;color:var(--muted)}
+.change-receipt p{font-size:.82rem;margin:0}
+.change-receipt .receipt-scope{font-size:.75rem;color:var(--muted);margin-top:7px}
+.change-receipt button{font-size:.78rem;display:flex;align-items:center;justify-content:center;gap:8px}
+.change-receipt button .icon{margin:0}
+.change-receipt>.quiet{grid-column:1/-1;font-size:.72rem}
+.consequence-groups{display:grid;gap:12px;margin:22px 0}
+.consequence-groups section{border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.consequence-groups h3{display:flex;align-items:flex-start;gap:8px;margin:0 0 10px;font-size:.9rem}
+.consequence-groups h3 .icon{margin-top:2px}
+.consequence-groups ul{margin:0;padding-left:20px}
+.consequence-groups p{margin:0}
+.consequence-reset{background:#fff8de;border-left:4px solid #975221!important}
+.consequence-retained{background:#edf3e4;border-left:4px solid var(--green)!important}
+dialog[open] .dialog-content{animation:dialog-arrive var(--content-duration) var(--ease)}
+@keyframes dialog-arrive{from{opacity:.65;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.change-receipt{grid-template-columns:1fr;padding:16px}.change-receipt button{width:100%}.choice-buttons button{flex:1 1 auto;white-space:nowrap;padding-inline:6px;font-size:.85rem}.dialog-content .button-row{flex-wrap:wrap}.dialog-content .button-row button{min-width:0}.hero-art{transform:none}.art-choice{flex-wrap:wrap;gap:8px}.art-step{padding:14px;gap:10px}.amber{margin-left:12px}}
+@media(prefers-reduced-motion:reduce){.progress-track i{transition:none}dialog[open] .dialog-content{animation:none}}
+@media(forced-colors:active){.progress-track,.progress-legend li:before{forced-color-adjust:none;background:Canvas;border-color:CanvasText}.progress-track .progress-complete,.progress-legend .legend-complete:before{forced-color-adjust:none;background:CanvasText}.progress-track .progress-inactive,.progress-legend .legend-inactive:before{forced-color-adjust:none;background:repeating-linear-gradient(135deg,Canvas 0 4px,GrayText 4px 6px)}.change-receipt,.consequence-groups section{border:1px solid CanvasText}.consequence-reset,.consequence-retained{border-left:4px solid CanvasText!important}}
