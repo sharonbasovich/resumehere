@@ -108,3 +108,30 @@ test('motion responds only to changes and interruption leaves the latest state',
  await expect.poll(()=>page.evaluate(()=>document.getAnimations().length)).toBe(0);
  await saved(page);await page.reload();await expect(progress(page,0,0,6)).toBeVisible();
 });
+
+test('dialog keyboard paging keeps the guide still and restored focus visible',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await page.setViewportSize({width:640,height:450});
+ await start(page);await answer(page,'Yes');
+ for(let i=0;i<5;i++)await page.getByRole('button',{name:'Mark complete'}).click();
+ await saved(page);
+ const no=page.getByRole('button',{name:'No',exact:true});
+ await no.click();
+ const dialog=page.getByRole('dialog',{name:'Review before continuing'});
+ await expect(dialog.getByRole('button',{name:'Cancel',exact:true})).toBeFocused();
+ const backgroundY=await page.evaluate(()=>window.scrollY);
+ // Page beyond each dialog boundary, as a keyboard reader can do. The brief
+ // pause lets the browser's own scrolling settle; it does not control app state.
+ for(let i=0;i<8;i++)await page.keyboard.press('PageUp');
+ await page.waitForTimeout(250);
+ await expect.poll(()=>dialog.evaluate(e=>e.scrollTop)).toBe(0);
+ expect(await page.evaluate(()=>window.scrollY)).toBe(backgroundY);
+ for(let i=0;i<8;i++)await page.keyboard.press('PageDown');
+ await page.waitForTimeout(250);
+ expect(await page.evaluate(()=>window.scrollY)).toBe(backgroundY);
+ await page.keyboard.press('Escape');
+ await expect(dialog).not.toBeVisible();await expect(no).toBeFocused();
+ await expect(no).toBeInViewport();
+ await expect(progress(page,5,1,0)).toBeVisible();
+ await saved(page);
+});

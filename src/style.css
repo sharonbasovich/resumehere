@@ -55,3 +55,6 @@ dialog[open] .dialog-content{animation:dialog-arrive var(--content-duration) var
 @media(max-width:760px){.change-receipt{grid-template-columns:1fr;padding:16px}.change-receipt button{width:100%}.choice-buttons button{flex:1 1 auto;white-space:nowrap;padding-inline:6px;font-size:.85rem}.dialog-content .button-row{flex-wrap:wrap}.dialog-content .button-row button{min-width:0}.hero-art{transform:none}.art-choice{flex-wrap:wrap;gap:8px}.art-step{padding:14px;gap:10px}.amber{margin-left:12px}}
 @media(prefers-reduced-motion:reduce){.progress-track i{transition:none}dialog[open] .dialog-content{animation:none}}
 @media(forced-colors:active){.progress-track,.progress-legend li:before{forced-color-adjust:none;background:Canvas;border-color:CanvasText}.progress-track .progress-complete,.progress-legend .legend-complete:before{forced-color-adjust:none;background:CanvasText}.progress-track .progress-inactive,.progress-legend .legend-inactive:before{forced-color-adjust:none;background:repeating-linear-gradient(135deg,Canvas 0 4px,GrayText 4px 6px)}.change-receipt,.consequence-groups section{border:1px solid CanvasText}.consequence-reset,.consequence-retained{border-left:4px solid CanvasText!important}}
+
+/* Keep dialog paging from moving the guide behind restored keyboard focus. */
+dialog{overscroll-behavior:contain}
