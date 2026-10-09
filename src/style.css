@@ -5,6 +5,10 @@
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}@media(forced-colors:active){button,.panel,.next-card,.art-step,.step-marker{border:1px solid CanvasText}.choice-buttons button[aria-pressed=true]{outline:2px solid Highlight}.progress-track{border:1px solid CanvasText}}
 
 .field-errors{font-size:.8rem;color:#8b3025;padding-left:20px}.last-completed{max-width:400px}.resume-strip>div:first-child{flex:1}.progress-track{flex-shrink:0;max-width:125px}
+.reference-repair{border:1px solid #975221;border-left-width:4px;border-radius:6px;background:#fff8de;padding:10px 12px;font-size:.8rem;overflow-wrap:anywhere}
+.reference-repair p{margin:0 0 8px}.reference-repair .check-label{padding-block:8px}
+.editor-node select{min-width:0;max-width:100%}
+@media(forced-colors:active){.reference-repair{border-color:CanvasText}}
 
 /* Feedback stays quiet and readable, even when motion or color is unavailable. */
 :root{--content-duration:180ms;--progress-duration:260ms;--ease:cubic-bezier(.2,0,0,1);-webkit-font-smoothing:antialiased}
